@@ -8,9 +8,10 @@ public class RegionPanel extends JPanel {
 
     public RegionPanel() {
         setBackground(Color.BLUE);
-        add(new JButton("버튼2"));
+        add(new JButton("RegionPanel"));
         setVisible(true);
-
+        
+        
     }
 
 }

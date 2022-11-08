@@ -7,7 +7,7 @@ import java.awt.*;
 
 
 public class MainPanel extends JPanel {
-    public JButton btn = new JButton("버튼1");
+    public JButton btn = new JButton("MainPanel");
     private static MainController mainController;
     public MainPanel() {
         setBackground(Color.BLACK);
