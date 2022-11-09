@@ -20,7 +20,7 @@ public class AppView extends JFrame{
         setVisible(true);
     }
 
-    public void change(JPanel panelName) {
+    public void change(JComponent panelName) {
         getContentPane().removeAll();
         getContentPane().add(panelName);
         revalidate();
