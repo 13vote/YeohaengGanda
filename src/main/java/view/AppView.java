@@ -14,7 +14,7 @@ public class AppView extends JFrame{
     public AppView() {
         setTitle("main");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(720,480);
+        setSize(600,900);
         mainPanel = new MainPanel();
         getContentPane().add(mainPanel);
         setVisible(true);
