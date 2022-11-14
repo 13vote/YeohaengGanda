@@ -17,6 +17,9 @@ public class AppView extends JFrame{
         setSize(600,900);
         mainPanel = new MainPanel();
         getContentPane().add(mainPanel);
+
+        MenuBar menuBar = new MenuBar();
+        this.setJMenuBar(menuBar);
         setVisible(true);
     }
 
