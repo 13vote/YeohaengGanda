@@ -8,15 +8,11 @@ import java.awt.*;
 
 public class MainPanel extends JPanel {
     public JButton btn = new JButton("MainPanel");
-    private static MainController mainController;
     public MainPanel() {
-        setBackground(Color.BLACK);
+        setBackground(new Color(99, 195, 249));
+        JLabel label = new JLabel(new ImageIcon("resource/map.png"));
+        add(label);
         add(btn);
-
-
-
         setVisible(true);
     }
-
-
 }
