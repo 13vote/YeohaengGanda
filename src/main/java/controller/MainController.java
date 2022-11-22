@@ -1,6 +1,7 @@
 package controller;
 
 import view.AppView;
+import view.DetailPanel;
 import view.RegionPanel;
 
 import javax.swing.*;
@@ -27,7 +28,7 @@ public class MainController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            regionPanel = new RegionPanel();
+        	regionPanel = new RegionPanel();
             appView.change(regionPanel);
         }
     }

@@ -1,9 +1,12 @@
 import controller.MainController;
+import controller.RegionController;
 import view.AppView;
 import view.MainPanel;
 
 public class Main {
     public static void main(String[] args) {
-        MainController m = new MainController(new AppView());
+    	AppView a = new AppView();
+        MainController m = new MainController(a);
+        RegionController r = new RegionController(a);
     }
 }
