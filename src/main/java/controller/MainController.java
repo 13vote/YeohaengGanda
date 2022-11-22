@@ -11,7 +11,6 @@ public class MainController {
 
     public MainController(AppView appView) {
         this.appView = appView;
-        appView.mainPanel.btn.addActionListener(new movePage2());
     }
 
     class  movePage2 implements ActionListener {
