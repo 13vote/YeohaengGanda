@@ -20,12 +20,19 @@ public class RegionPanel extends JSplitPane {
 	private final Dimension rtnBtnSize = new Dimension(75, 25);
 	private final Point rtnBtnLocation = new Point(10,10);
 	
-	static String[] regions = {"º≠øÔ", "∞Ê±‚", "√Ê√ª", "¡¶¡÷"};
+	static Image regionPic;
+	static String[] regions = {"Í≤ΩÍ∏∞ÎèÑ", "Í≤ΩÍ∏∞", "Ï∂©Ï≤≠ÎèÑ"};
+	static String[] YeohaengJi = {"ÎÇ®ÏÇ∞ÌÉÄÏõå", "Í≤ΩÎ≥µÍ∂Å", "Ï≤≠ÏôÄÎåÄ"};
+	static Image[] YeohaengJiPic = {};
 
-	public RegionPanel() {
+	public RegionPanel() {//public RegionPanel(Image regionPic,String[] regions, String[] YehaengJi)
 		super(JSplitPane.VERTICAL_SPLIT);
-		this.setTopComponent(new UtilPanel());
-		this.setBottomComponent(new GridLayoutPanel());
+		UtilPanel util = new UtilPanel(regionPic, regions);
+		this.setTopComponent(util);
+		
+		GridLayoutPanel grid = new GridLayoutPanel(YeohaengJiPic);
+		this.setBottomComponent(grid);
+		
 		this.setDividerLocation(0.25);
 		this.setDividerSize(0);
 		
@@ -67,7 +74,7 @@ public class RegionPanel extends JSplitPane {
 			RegionCombo reg = new RegionCombo();
 			this.add(reg);
 			
-			JButton rtnBtn = new JButton("µ⁄∑Œ");
+			JButton rtnBtn = new JButton("ÔøΩ⁄∑ÔøΩ");
 			rtnBtn.setBounds(new Rectangle(rtnBtnLocation, rtnBtnSize));
 			this.add(rtnBtn);
 			
