@@ -17,7 +17,7 @@ public class MainPanel extends JPanel {
         put("제주 지역", new int[]{50, 680});
     }};
 
-    private JLabel backgroundImage;
+    public JLabel backgroundImage;
 
     public MainPanel() {
         // 배경 이미지
@@ -25,9 +25,6 @@ public class MainPanel extends JPanel {
         backgroundImage = new JLabel(new ImageIcon("src/main/java/images/map.png"));
         backgroundImage.setBounds(77, 140, 446, 729);
         this.add(backgroundImage);
-
-        // 버튼 등록
-        //regionList.forEach(this::newButton);
 
         setVisible(true);
         regionList.forEach(this::newButton);
