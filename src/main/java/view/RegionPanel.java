@@ -76,7 +76,7 @@ public class RegionPanel extends JSplitPane {
 			RegionCombo reg = new RegionCombo();
 			this.add(reg);
 			
-			JButton rtnBtn = new JButton("�ڷ�");
+			JButton rtnBtn = new JButton("지도");
 			rtnBtn.setBounds(new Rectangle(rtnBtnLocation, rtnBtnSize));
 			this.add(rtnBtn);
 			
