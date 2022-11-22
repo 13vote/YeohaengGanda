@@ -11,6 +11,7 @@ import java.util.Arrays;
 
 public class MainController {
     AppView appView;
+    RegionPanel regionPanel;
 
     public MainController(AppView appView) {
         this.appView = appView;
@@ -26,8 +27,15 @@ public class MainController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            RegionPanel regionPanel = new RegionPanel();
+            regionPanel = new RegionPanel();
             appView.change(regionPanel);
+        }
+    }
+
+    class movePage3 implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(e.getSource());
         }
     }
 }

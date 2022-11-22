@@ -19,6 +19,8 @@ public class RegionPanel extends JSplitPane {
 	//UtilPanel-returnButton
 	private final Dimension rtnBtnSize = new Dimension(75, 25);
 	private final Point rtnBtnLocation = new Point(10,10);
+
+	public GridLayoutPanel gridLayoutPanel = new GridLayoutPanel();
 	
 	static Image regionPic;
 	static String[] regions = {"경기도", "경기", "충청도"};
@@ -27,12 +29,12 @@ public class RegionPanel extends JSplitPane {
 
 	public RegionPanel() {//public RegionPanel(Image regionPic,String[] regions, String[] YehaengJi)
 		super(JSplitPane.VERTICAL_SPLIT);
-		UtilPanel util = new UtilPanel(regionPic, regions);
-		this.setTopComponent(util);
+		//UtilPanel util = new UtilPanel(regionPic, regions);
+		//this.setTopComponent(util);
 		
-		GridLayoutPanel grid = new GridLayoutPanel(YeohaengJiPic);
-		this.setBottomComponent(grid);
-		
+		//GridLayoutPanel grid = new GridLayoutPanel(YeohaengJiPic);
+		this.setTopComponent(new UtilPanel());
+		this.setBottomComponent(gridLayoutPanel);
 		this.setDividerLocation(0.25);
 		this.setDividerSize(0);
 		
