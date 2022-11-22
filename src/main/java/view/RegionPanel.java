@@ -63,6 +63,7 @@ public class RegionPanel extends JSplitPane {
 				//System.out.println(i + ": " +(i % 3) * (hGap + btnSize.width) + hGap +" " + (i / 3) * (vGap + btnSize.height) + vGap);
 				btn.setBackground(clr);
 				this.add(btn);
+				System.out.println(btn.getRootPane());
 			}
     	}
 	}
