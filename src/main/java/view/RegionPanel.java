@@ -22,10 +22,17 @@ public class RegionPanel extends JSplitPane {
 
 	public GridLayoutPanel gridLayoutPanel = new GridLayoutPanel();
 	
-	static String[] regions = {"����", "���", "��û", "����"};
+	static Image regionPic;
+	static String[] regions = {"경기도", "경기", "충청도"};
+	static String[] YeohaengJi = {"남산타워", "경복궁", "청와대"};
+	static Image[] YeohaengJiPic = {};
 
-	public RegionPanel() {
+	public RegionPanel() {//public RegionPanel(Image regionPic,String[] regions, String[] YehaengJi)
 		super(JSplitPane.VERTICAL_SPLIT);
+		//UtilPanel util = new UtilPanel(regionPic, regions);
+		//this.setTopComponent(util);
+		
+		//GridLayoutPanel grid = new GridLayoutPanel(YeohaengJiPic);
 		this.setTopComponent(new UtilPanel());
 		this.setBottomComponent(gridLayoutPanel);
 		this.setDividerLocation(0.25);
@@ -69,7 +76,7 @@ public class RegionPanel extends JSplitPane {
 			RegionCombo reg = new RegionCombo();
 			this.add(reg);
 			
-			JButton rtnBtn = new JButton("�ڷ�");
+			JButton rtnBtn = new JButton("지도");
 			rtnBtn.setBounds(new Rectangle(rtnBtnLocation, rtnBtnSize));
 			this.add(rtnBtn);
 			
