@@ -19,13 +19,15 @@ public class RegionPanel extends JSplitPane {
 	//UtilPanel-returnButton
 	private final Dimension rtnBtnSize = new Dimension(75, 25);
 	private final Point rtnBtnLocation = new Point(10,10);
+
+	public GridLayoutPanel gridLayoutPanel = new GridLayoutPanel();
 	
-	static String[] regions = {"¼­¿ï", "°æ±â", "ÃæÃ»", "Á¦ÁÖ"};
+	static String[] regions = {"ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½", "ï¿½ï¿½Ã»", "ï¿½ï¿½ï¿½ï¿½"};
 
 	public RegionPanel() {
 		super(JSplitPane.VERTICAL_SPLIT);
 		this.setTopComponent(new UtilPanel());
-		this.setBottomComponent(new GridLayoutPanel());
+		this.setBottomComponent(gridLayoutPanel);
 		this.setDividerLocation(0.25);
 		this.setDividerSize(0);
 		
@@ -67,7 +69,7 @@ public class RegionPanel extends JSplitPane {
 			RegionCombo reg = new RegionCombo();
 			this.add(reg);
 			
-			JButton rtnBtn = new JButton("µÚ·Î");
+			JButton rtnBtn = new JButton("ï¿½Ú·ï¿½");
 			rtnBtn.setBounds(new Rectangle(rtnBtnLocation, rtnBtnSize));
 			this.add(rtnBtn);
 			
