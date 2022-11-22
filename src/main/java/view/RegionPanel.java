@@ -6,7 +6,20 @@ import java.awt.*;
 import java.util.List;
 
 public class RegionPanel extends JSplitPane {
-	private final int hGap = 10, vGap = 10;
+	//GridLayoutPanel
+	private final int hGap = 27, vGap = 30;
+	private final Color clr = new Color(6538238);
+	//GridLayoutPanel-btn
+	private final Dimension btnSize = new Dimension(160, 120);
+	//UtilPanel
+	private final Dimension utilPanelSize = new Dimension(600, 150);
+	//UtilPanel-RegionCombobox
+	private final Dimension regComboSize = new Dimension(100,30);
+	private final Point regComboLocation = new Point((utilPanelSize.width - regComboSize.width) - 25 , (utilPanelSize.height - regComboSize.height) - 10);
+	//UtilPanel-returnButton
+	private final Dimension rtnBtnSize = new Dimension(75, 25);
+	private final Point rtnBtnLocation = new Point(10,10);
+	
 	static String[] regions = {"辑匡", "版扁", "面没", "力林"};
 
 	public RegionPanel() {
@@ -14,6 +27,7 @@ public class RegionPanel extends JSplitPane {
 		this.setTopComponent(new UtilPanel());
 		this.setBottomComponent(new GridLayoutPanel());
 		this.setDividerLocation(0.25);
+		this.setDividerSize(0);
 		
 	}
 
@@ -21,7 +35,9 @@ public class RegionPanel extends JSplitPane {
 		setBackground(Color.BLUE);
 		this.setLayout(new GridLayout((regionNames.size() / 3) + 1, 3, hGap, vGap));
 		for (String name : regionNames) {
-			this.add(new JButton(name));
+			JButton btn = new JButton(name);
+			btn.setSize(btnSize);
+			this.add(btn);
 		}
 		setVisible(true);
 
@@ -29,10 +45,14 @@ public class RegionPanel extends JSplitPane {
 
 	public class GridLayoutPanel extends JPanel {
 		public GridLayoutPanel() {
-			this.setBackground(Color.BLUE);
-			this.setLayout(new GridLayout(4, 3, hGap, vGap));
+			this.setBackground(Color.WHITE);
+			this.setLayout(null);
 			for(int i = 0; i< 12; i++) {
 				JButton btn = new JButton(Integer.toString(i));
+				btn.setSize(btnSize);
+				btn.setLocation((i % 3) * (hGap + btnSize.width) + hGap, (i / 3) * (vGap + btnSize.height) + vGap);
+				//System.out.println(i + ": " +(i % 3) * (hGap + btnSize.width) + hGap +" " + (i / 3) * (vGap + btnSize.height) + vGap);
+				btn.setBackground(clr);
 				this.add(btn);
 			}
     	}
@@ -45,15 +65,13 @@ public class RegionPanel extends JSplitPane {
 			
 			//JComboBox<String> reg = new JComboBox<String>(regions);
 			RegionCombo reg = new RegionCombo();
-			reg.setSize(100, 50);
-			reg.setLocation(600, 50);
 			this.add(reg);
 			
 			JButton rtnBtn = new JButton("第肺");
-			rtnBtn.setBounds(10,10, 50, 25);
+			rtnBtn.setBounds(new Rectangle(rtnBtnLocation, rtnBtnSize));
 			this.add(rtnBtn);
 			
-			this.setPreferredSize(new Dimension(720,100));
+			this.setPreferredSize(utilPanelSize);
 			
 		}
 	}
@@ -61,6 +79,8 @@ public class RegionPanel extends JSplitPane {
 	private class RegionCombo extends JComboBox<String>{
 		public RegionCombo() {
 			super(regions);
+			this.setLocation(regComboLocation);
+			this.setSize(regComboSize);
 		}
 	}
 }
