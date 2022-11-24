@@ -28,8 +28,7 @@ public class MainController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-        	regionPanel = new RegionPanel();
-            appView.change(regionPanel);
+            appView.change("r");
         }
     }
 

@@ -29,9 +29,12 @@ public class AppView extends JFrame{
         setVisible(true);
     }
 
-    public void change(JComponent panelName) {
+    public void change(String str) {
         getContentPane().removeAll();
-        getContentPane().add(panelName);
+        if(str == "r")
+        	getContentPane().add(regionPanel);
+        else if(str == "d")
+        	getContentPane().add(detailPanel);
         revalidate();
         repaint();
     }

@@ -53,17 +53,17 @@ public class RegionPanel extends JSplitPane {
 	}
 
 	public class GridLayoutPanel extends JPanel {
+		public JButton[] btnList = {new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(),new JButton()};
 		public GridLayoutPanel() {
 			this.setBackground(Color.WHITE);
 			this.setLayout(null);
 			for(int i = 0; i< 12; i++) {
-				JButton btn = new JButton(Integer.toString(i));
-				btn.setSize(btnSize);
-				btn.setLocation((i % 3) * (hGap + btnSize.width) + hGap, (i / 3) * (vGap + btnSize.height) + vGap);
+				btnList[i].setText(Integer.toString(i));
+				btnList[i].setSize(btnSize);
+				btnList[i].setLocation((i % 3) * (hGap + btnSize.width) + hGap, (i / 3) * (vGap + btnSize.height) + vGap);
 				//System.out.println(i + ": " +(i % 3) * (hGap + btnSize.width) + hGap +" " + (i / 3) * (vGap + btnSize.height) + vGap);
-				btn.setBackground(clr);
-				this.add(btn);
-				System.out.println(btn.getRootPane());
+				btnList[i].setBackground(clr);
+				this.add(btnList[i]);
 			}
     	}
 	}

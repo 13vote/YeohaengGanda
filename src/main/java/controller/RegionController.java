@@ -17,8 +17,7 @@ public class RegionController {
 	public RegionController(AppView appView) {
 		this.appView = appView;
 		
-		Component[] list = appView.regionPanel.gridLayoutPanel.getComponents();
-		for(Component btn: list) {
+		for(Component btn: appView.regionPanel.gridLayoutPanel.btnList) {
 			System.out.println((JButton)btn);
 			JButton actionButton = (JButton) btn;
 			actionButton.addActionListener(new movePage3());
@@ -30,7 +29,7 @@ public class RegionController {
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getSource());
         detailPanel = new DetailPanel();
-        appView.change(detailPanel);
+        appView.change("d");
     }
 }
 
