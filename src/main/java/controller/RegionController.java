@@ -27,8 +27,6 @@ public class RegionController {
 	class movePage3 implements ActionListener{
 	@Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(e.getSource());
-        detailPanel = new DetailPanel();
         appView.change("d");
     }
 }

@@ -40,15 +40,16 @@ public class RegionPanel extends JSplitPane {
 		
 	}
 
-	public RegionPanel(List<String> regionNames) {
-		setBackground(Color.BLUE);
-		this.setLayout(new GridLayout((regionNames.size() / 3) + 1, 3, hGap, vGap));
-		for (String name : regionNames) {
-			JButton btn = new JButton(name);
-			btn.setSize(btnSize);
-			this.add(btn);
-		}
-		setVisible(true);
+	public RegionPanel(String[] regions, ImageIcon regionProfilePicture, ImageIcon[] tripPic) {
+		super(JSplitPane.VERTICAL_SPLIT);
+		this.setTopComponent(new UtilPanel(regions, regionProfilePicture));
+		
+		this.gridLayoutPanel = new GridLayoutPanel(tripPic);
+		this.setBottomComponent(gridLayoutPanel);
+		
+		
+		this.setDividerLocation(0.25);
+		this.setDividerSize(0);
 
 	}
 
@@ -66,6 +67,18 @@ public class RegionPanel extends JSplitPane {
 				this.add(btnList[i]);
 			}
     	}
+		public GridLayoutPanel(ImageIcon[] tripPic) {
+			this.setBackground(Color.WHITE);
+			this.setLayout(null);
+			
+			for(int i = 0; i < tripPic.length; i++) {
+				btnList[i].setIcon(tripPic[i]);
+				btnList[i].setSize(btnSize);
+				btnList[i].setLocation((i % 3) * (hGap + btnSize.width) + hGap, (i / 3) * (vGap + btnSize.height) + vGap);
+				btnList[i].setBackground(clr);
+				this.add(btnList[i]);
+			}
+		}
 	}
 
 	private class UtilPanel extends JPanel {
@@ -83,6 +96,23 @@ public class RegionPanel extends JSplitPane {
 			
 			this.setPreferredSize(utilPanelSize);
 			
+		}
+		public UtilPanel(String[] regions, ImageIcon regionProfilePicture) {
+			// TODO Auto-generated constructor stub
+			this.setBackground(Color.BLUE);
+			this.setLayout(null);
+			
+			JComboBox<String> reg = new JComboBox<String>(regions);
+			this.add(reg);
+			
+			JLabel regProfile = new JLabel(regionProfilePicture);
+			this.add(regProfile);
+			
+			JButton rtnBtn = new JButton("지도");
+			rtnBtn.setBounds(new Rectangle(rtnBtnLocation, rtnBtnSize));
+			this.add(rtnBtn);
+			
+			this.setPreferredSize(utilPanelSize);
 		}
 	}
 	
