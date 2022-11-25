@@ -31,7 +31,9 @@ public class AppView extends JFrame{
 
     public void change(String str) {
         getContentPane().removeAll();
-        if(str == "r")
+        if(str == "m")
+        	getContentPane().add(mainPanel);
+        else if(str == "r")
         	getContentPane().add(regionPanel);
         else if(str == "d")
         	getContentPane().add(detailPanel);

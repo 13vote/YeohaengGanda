@@ -21,6 +21,7 @@ public class RegionPanel extends JSplitPane {
 	private final Point rtnBtnLocation = new Point(10,10);
 
 	public GridLayoutPanel gridLayoutPanel = new GridLayoutPanel();
+	public UtilPanel utilPanel = new UtilPanel();
 	
 	static Image regionPic;
 	static String[] regions = {"경기도", "경기", "충청도"};
@@ -33,7 +34,7 @@ public class RegionPanel extends JSplitPane {
 		//this.setTopComponent(util);
 		
 		//GridLayoutPanel grid = new GridLayoutPanel(YeohaengJiPic);
-		this.setTopComponent(new UtilPanel());
+		this.setTopComponent(utilPanel);
 		this.setBottomComponent(gridLayoutPanel);
 		this.setDividerLocation(0.25);
 		this.setDividerSize(0);
@@ -42,7 +43,8 @@ public class RegionPanel extends JSplitPane {
 
 	public RegionPanel(String[] regions, ImageIcon regionProfilePicture, ImageIcon[] tripPic) {
 		super(JSplitPane.VERTICAL_SPLIT);
-		this.setTopComponent(new UtilPanel(regions, regionProfilePicture));
+		this.utilPanel = new UtilPanel(regions, regionProfilePicture);
+		this.setTopComponent(utilPanel);
 		
 		this.gridLayoutPanel = new GridLayoutPanel(tripPic);
 		this.setBottomComponent(gridLayoutPanel);
@@ -81,7 +83,7 @@ public class RegionPanel extends JSplitPane {
 		}
 	}
 
-	private class UtilPanel extends JPanel {
+	public class UtilPanel extends JPanel {
 		public UtilPanel() {
 			this.setBackground(Color.BLUE);
 			this.setLayout(null);
