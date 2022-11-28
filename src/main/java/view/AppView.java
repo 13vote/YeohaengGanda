@@ -3,6 +3,7 @@ package view;
 import controller.MainController;
 import controller.RegionController;
 import model.MainModel;
+import view.RegionPanel.GridLayoutPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +18,7 @@ public class AppView extends JFrame{
     private static RegionController regionController;
 
     private String[] regions = new String[] {
-            "경기도",
+            "경기 지역",
             "강원도",
             "충청북도",
             "충청남도",
@@ -144,7 +145,19 @@ public class AppView extends JFrame{
         setSize(600,900);
         createDummy(regions, names, positions, informations);
         mainPanel = new MainPanel();
-        regionPanel = new RegionPanel();
+        
+        regionPanel = new RegionPanel(regions, new String[] {"파주 임진각",
+                "인천 송도 센트럴파크",
+                "수원 화성",
+                "광주 화담숲",
+                "포천 아트밸리",
+                "용인 에버랜드",
+                "시흥 갯골생태공원",
+                "가평 아침고요수목원",
+                "포천 한탄강 주상절리길 ",
+                "시흥 오이도",});
+        //regionPanel.gridLayoutPanel = new GridLayoutPanel();
+        
         detailPanel = new DetailPanel();
         getContentPane().add(mainPanel);
         

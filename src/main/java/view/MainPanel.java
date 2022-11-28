@@ -7,14 +7,14 @@ import java.util.HashMap;
 public class MainPanel extends JPanel {
     private HashMap<String, int[]> regionList = new HashMap<String, int[]>() {{
         put("경기 지역", new int[]{120, 140});
-        put("강원 지역", new int[]{260, 120});
-        put("충북 지역", new int[]{190, 230});
-        put("충남 지역", new int[]{90, 280});
-        put("전북 지역", new int[]{130, 390});
-        put("전남 지역", new int[]{100, 480});
-        put("경북 지역", new int[]{300, 300});
-        put("경남 지역", new int[]{250, 450});
-        put("제주 지역", new int[]{50, 680});
+        put("강원도", new int[]{260, 120});
+        put("충청북도", new int[]{190, 230});
+        put("충청남도", new int[]{90, 280});
+        put("전라북도", new int[]{130, 390});
+        put("전라남도", new int[]{100, 480});
+        put("경상북도", new int[]{300, 300});
+        put("경상남도", new int[]{250, 450});
+        put("제주도", new int[]{50, 680});
     }};
 
     public JLabel backgroundImage;
