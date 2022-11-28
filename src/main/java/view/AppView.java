@@ -97,8 +97,8 @@ public class AppView extends JFrame{
             "옥천 수생식물학습원"
            }
     };
-    
-    private String[] positions = new String[] {
+
+    public String[] positions = new String[] {
             "파주시 문산읍임진각로164",
             "인천 연수구 컨벤시아대로160",
             "경기도 수원 팔달구 정조로 910",
@@ -131,8 +131,8 @@ public class AppView extends JFrame{
             "충청북도 옥천군 군북면 방아실길 255"
     };
 
-    private String[] informations = new String[] {
-            "비무장지대의 현실적인 모습을 볼 수 있다.\n" + "임진각, 북한기념관 등 통일 안보관광지\n",
+    public String[] informations = new String[] {
+            "<html><body>비무장지대의 현실적인 모습을 볼 수 있다<br>임진각, 북한기념관 등 통일 안보관광지</body></html>" ,
             "인천 근린공원\n" + "호텔, 큰 공원, 배 탑승 가능\n" + "한옥 식당 가성비 좋음\n" + "일광욕과 도시뷰 감상 가능\n",
             "축조 시 기록이 남아있는 유일한 곳이다.\n" + "화성성역의궤로 복원 유지 중\n" + "화성 성곽\n",
             "생태수목원\n" + "숲의 식생을 최대한 보존한 곳이다\n" + "5km 완만한 데크길로 조성된 산책길\n" + "이끼원, 자작나무숲, 분재원 등\n" + "멸종 위기종의 생태복원을 휘안 서식환경 연구\n",
@@ -165,7 +165,7 @@ public class AppView extends JFrame{
     };
 
     private MainModel[] dummyData = new MainModel[90];
-
+    public String name2;
     private void createDummy(String[] region, String[] name, String[] position, String[] information) {
         MainModel model;
         for (int i = 0; i < name.length; i++) {
@@ -185,7 +185,7 @@ public class AppView extends JFrame{
         regionPanel = new RegionPanel(regions, names2[0], 0);
         //regionPanel.gridLayoutPanel = new GridLayoutPanel();
         
-        detailPanel = new DetailPanel();
+        detailPanel = new DetailPanel(name2,positions[0],informations[0]);
         getContentPane().add(mainPanel);
         
         MenuBar menuBar = new MenuBar();
@@ -212,5 +212,9 @@ public class AppView extends JFrame{
     	
     	revalidate();
         repaint();
+    }
+
+    public void detailChange(String name2, String positions, String informations){
+        this.detailPanel = new DetailPanel(name2,positions,informations);
     }
 }
