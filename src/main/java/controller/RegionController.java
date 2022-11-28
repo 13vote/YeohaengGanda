@@ -1,7 +1,5 @@
 package controller;
 
-import view.RegionPanel;
-import view.RegionPanel.GridLayoutPanel;
 import view.AppView;
 import view.DetailPanel;
 
@@ -11,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.Arrays;
+
 
 public class RegionController {
 	AppView appView;
@@ -32,15 +30,40 @@ public class RegionController {
 			JButton actionButton = (JButton) btn;
 			actionButton.addActionListener(new movePage3());
 		}
-		
 		appView.regionPanel.utilPanel.reg.addItemListener(new regionChange());
 	}
 
 	class movePage3 implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+
+			appView.detailPanel.name2 = e.getActionCommand();
+
+
+			System.out.println(e.getSource());
+			int i = 0;
+
+			int j = 0;
+			while(! e.getActionCommand().equals(appView.names2[j][i])){
+				i+=1;
+				if (i ==10){
+					j +=1;
+					i =0;
+				}
+			}
+			appView.detailPanel.i1 = i ;
+
+			appView.detailPanel.i2 = j ;
+
+			i = appView.detailPanel.i1;
+			j = appView.detailPanel.i2;
+			int result = i*j+i;
+			appView.detailChange(appView.detailPanel.name2,appView.positions[result],appView.informations[result]);
+
 			appView.change("d");
+
 		}
+
 	}
 
 	class movePage1 implements ActionListener {
@@ -64,6 +87,8 @@ public class RegionController {
 				new RegionController(appView);
 			}
 		
+		}
+
 	}
 
-}}
+}
