@@ -1,21 +1,31 @@
 package model;
 
-
-import java.util.List;
-
 public class MainModel {
-    private List<String> name;
+   private final String region;
+   private final String name;
+   private final String position;
+   private final String information;
 
-    public MainModel(List<String> name) {
-        this.name = name;
+   public MainModel(String region, String name, String position, String information) {
+       this.region = region;
+       this.name = name;
+       this.position = position;
+       this.information = information;
+   }
+
+    public String getRegion() {
+        return region;
     }
 
-    public List<String> getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(List<String> name) {
-        this.name = name;
+    public String getPosition() {
+        return position;
     }
 
+    public String getInformation() {
+        return information;
+    }
 }

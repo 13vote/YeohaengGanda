@@ -1,13 +1,9 @@
 package view;
 
-import model.Model3;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class DetailPanel extends JPanel {
-
-    private Model3 model3;
     private String[] content={"여행 설명여행  설명 여행 설명 여행 설명 여행 설명 여행 설명 여행 설명 여행 설명 여행 설명 여행 설명  "};
     private String[] name = {"경기도", "경상북도","경상남도","전라북도","전라남도"
             ,"충청북도","충청남도","강원도"};
