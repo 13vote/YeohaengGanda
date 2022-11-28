@@ -1,6 +1,7 @@
 package controller;
 
 import view.RegionPanel;
+import view.RegionPanel.GridLayoutPanel;
 import view.AppView;
 import view.DetailPanel;
 
@@ -14,12 +15,15 @@ import java.util.Arrays;
 
 public class RegionController {
 	AppView appView;
-	DetailPanel detailPanel;
 
 	public RegionController(AppView appView) {
 		this.appView = appView;
 
-		// System.out.println(appView.regionPanel.utilPanel.getComponent(1));
+		this.addEvent();
+		
+	}
+	
+	public void addEvent() {
 		JButton returnbtn = (JButton) appView.regionPanel.utilPanel.getComponent(1);
 		returnbtn.addActionListener(new movePage1());
 
@@ -30,7 +34,6 @@ public class RegionController {
 		}
 		
 		appView.regionPanel.utilPanel.reg.addItemListener(new regionChange());
-		
 	}
 
 	class movePage3 implements ActionListener {
@@ -57,6 +60,8 @@ public class RegionController {
 				int regionInt = regionCombo.getSelectedIndex();
 				System.out.println(regionCombo.getSelectedItem().toString());
 				
+				appView.regionChange(regionInt);
+				new RegionController(appView);
 			}
 		
 	}

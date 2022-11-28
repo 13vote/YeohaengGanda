@@ -29,8 +29,8 @@ public class AppView extends JFrame{
             "제주도"
     };
 
-    private String[] names = new String[] {
-            "파주 임진각",
+    private String[] names = new String[]{
+    		"파주 임진각",
             "인천 송도 센트럴파크",
             "수원 화성",
             "광주 화담숲",
@@ -60,8 +60,44 @@ public class AppView extends JFrame{
             "충추 능암온천랜드",
             "단양 도담삼봉",
             "옥천 수생식물학습원"
+           
     };
-
+    public String[][] names2 = new String[][] {
+    	{"파주 임진각",
+            "인천 송도 센트럴파크",
+            "수원 화성",
+            "광주 화담숲",
+            "포천 아트밸리",
+            "용인 에버랜드",
+            "시흥 갯골생태공원",
+            "가평 아침고요수목원",
+            "포천 한탄강 주상절리길 ",
+            "시흥 오이도"
+    	},{
+            "춘천 남이섬",
+            "인제 원대리 자작나무 숲",
+            "원주 소금산 출렁다리",
+            "삼척 이사부길",
+            "홍천 은행나무숲",
+            "고성 하늬라벤더팜",
+            "춘천 해피초원목장",
+            "평창 대관령눈꽃마을",
+            "홍천 힐리언스 선마을",
+            "동해 논골담길"
+           },{
+            "단양강 잔도",
+            "단양 만천하 스카이위크",
+            "청주 청남대",
+            "제천 용추폭포 유리전망대",
+            "제천 청풍호반케이블카",
+            "단양 보발재",
+            "단양 수양개빛터널",
+            "충추 능암온천랜드",
+            "단양 도담삼봉",
+            "옥천 수생식물학습원"
+           }
+    };
+    
     private String[] positions = new String[] {
             "파주시 문산읍임진각로164",
             "인천 연수구 컨벤시아대로160",
@@ -146,16 +182,7 @@ public class AppView extends JFrame{
         createDummy(regions, names, positions, informations);
         mainPanel = new MainPanel();
         
-        regionPanel = new RegionPanel(regions, new String[] {"파주 임진각",
-                "인천 송도 센트럴파크",
-                "수원 화성",
-                "광주 화담숲",
-                "포천 아트밸리",
-                "용인 에버랜드",
-                "시흥 갯골생태공원",
-                "가평 아침고요수목원",
-                "포천 한탄강 주상절리길 ",
-                "시흥 오이도",});
+        regionPanel = new RegionPanel(regions, names2[0], 0);
         //regionPanel.gridLayoutPanel = new GridLayoutPanel();
         
         detailPanel = new DetailPanel();
@@ -175,6 +202,15 @@ public class AppView extends JFrame{
         else if(str == "d")
         	getContentPane().add(detailPanel);
         revalidate();
+        repaint();
+    }
+    
+    public void regionChange(int regionNo) {
+    	getContentPane().removeAll();
+    	this.regionPanel = new RegionPanel(regions, names2[regionNo], regionNo);
+    	getContentPane().add(regionPanel);
+    	
+    	revalidate();
         repaint();
     }
 }
