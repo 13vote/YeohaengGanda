@@ -68,8 +68,8 @@ public class DetailPanel extends JPanel {
         setVisible(true);
     }
     private void btn(){
-        // JButton("여행지 저장하기") 생성
-        JButton btn = new JButton("여행지 저장하기");
+        // JButton("뒤로가기") 생성
+        JButton btn = new JButton("뒤로가기");
         add(btn).setBounds(132,721,335,56);
         add(btn).setBackground(new Color(99,195,249));
         Font Font1 = new Font("pretendard", Font.PLAIN, 24);
