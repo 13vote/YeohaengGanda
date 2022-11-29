@@ -2,6 +2,7 @@ package controller;
 
 import view.AppView;
 import view.DetailPanel;
+import view.RegionPanel.GridLayoutPanel.MyButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +28,7 @@ public class RegionController {
 
 		for (Component btn : appView.regionPanel.gridLayoutPanel.btnList) {
 			// System.out.println((JButton)btn);
-			JButton actionButton = (JButton) btn;
+			MyButton actionButton = (MyButton) btn;
 			actionButton.addActionListener(new movePage3());
 		}
 		appView.regionPanel.utilPanel.reg.addItemListener(new regionChange());
@@ -36,15 +37,16 @@ public class RegionController {
 	class movePage3 implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
-			appView.detailPanel.name2 = e.getActionCommand();
+			MyButton btn = (MyButton)e.getSource();
+			appView.detailPanel.name2 = btn.text;
+			//appView.detailPanel.name2 = e.getActionCommand();
 
 
 			System.out.println(e.getSource());
 			int i = 0;
 
 			int j = 0;
-			while(! e.getActionCommand().equals(appView.names2[j][i])){
+			while(! (btn.text).equals(appView.names2[j][i])){
 				i+=1;
 				if (i ==10){
 					j +=1;

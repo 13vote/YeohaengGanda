@@ -53,6 +53,19 @@ public class RegionPanel extends JSplitPane {
 		this.setDividerSize(0);
 
 	}
+	
+	public RegionPanel(String[] regions, JLabel[] images, String[] names, int regionNo) {
+		super(JSplitPane.VERTICAL_SPLIT);
+		this.utilPanel = new UtilPanel(regions, regionNo);
+		this.setTopComponent(utilPanel);
+
+		this.gridLayoutPanel = new GridLayoutPanel(images, names);
+		this.setBottomComponent(gridLayoutPanel);
+
+		this.setDividerLocation(0.25);
+		this.setDividerSize(0);
+
+	}
 
 	public RegionPanel(String[] regions, String[] names, int regionNo) {
 		super(JSplitPane.VERTICAL_SPLIT);
@@ -81,30 +94,31 @@ public class RegionPanel extends JSplitPane {
 	}
 
 	public class GridLayoutPanel extends JPanel {
-		public JButton[] btnList = { new JButton(), new JButton(), new JButton(), new JButton(), new JButton(),
-				new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(),
-				new JButton(), new JButton(), new JButton() };
+		public MyButton[] btnList = { new MyButton(), new MyButton(), new MyButton(), new MyButton(), new MyButton(),
+				new MyButton(), new MyButton(), new MyButton(), new MyButton(), new MyButton(), new MyButton(),
+				new MyButton(), new MyButton(), new MyButton(), new MyButton() };
 
-		public GridLayoutPanel() {
-			this.setBackground(Color.WHITE);
-			this.setLayout(null);
-			for (int i = 0; i < 12; i++) {
-				btnList[i].setText(Integer.toString(i));
-				btnList[i].setSize(btnSize);
-				btnList[i].setLocation((i % 3) * (hGap + btnSize.width) + hGap,
-						(i / 3) * (vGap + btnSize.height) + vGap);
-				// System.out.println(i + ": " +(i % 3) * (hGap + btnSize.width) + hGap +" " +
-				// (i / 3) * (vGap + btnSize.height) + vGap);
-				btnList[i].setBackground(clr);
-				this.add(btnList[i]);
-			}
-		}
-
+		public GridLayoutPanel() {}
 		public GridLayoutPanel(JLabel[] images) {
 			this.setBackground(Color.WHITE);
 			this.setLayout(null);
 
 			for (int i = 0; i < images.length; i++) {
+				btnList[i].setIcon(images[i].getIcon());
+				btnList[i].setSize(btnSize);
+				btnList[i].setLocation((i % 3) * (hGap + btnSize.width) + hGap,
+						(i / 3) * (vGap + btnSize.height) + vGap);
+				btnList[i].setBackground(clr);
+				this.add(btnList[i]);
+			}
+		}
+
+		public GridLayoutPanel(JLabel[] images, String[] names) {
+			this.setBackground(Color.WHITE);
+			this.setLayout(null);
+
+			for (int i = 0; i < images.length; i++) {
+				btnList[i].text = names[i];
 				btnList[i].setIcon(images[i].getIcon());
 				btnList[i].setSize(btnSize);
 				btnList[i].setLocation((i % 3) * (hGap + btnSize.width) + hGap,
@@ -125,6 +139,14 @@ public class RegionPanel extends JSplitPane {
 						(i / 3) * (vGap + btnSize.height) + vGap);
 				btnList[i].setBackground(clr);
 				this.add(btnList[i]);
+			}
+		}
+
+		public class MyButton extends JButton {
+			public String text;
+
+			public MyButton() {
+				super();
 			}
 		}
 
@@ -161,7 +183,7 @@ public class RegionPanel extends JSplitPane {
 			reg = new RegionCombo(regions);
 			reg.setSelectedIndex(regionNo);
 			this.add(reg);
-			
+
 //			// JLabel regProfile = new JLabel(regionProfilePicture);
 //			// this.add(regProfile);
 //			JLabel regName = new JLabel(regions[regionNo]);
