@@ -401,7 +401,8 @@ public class AppView extends JFrame{
             "<html><body>산굼부리는 천연기념물로 둘레가 2km가 넘는 화구이다. 제주도에서 유일하게 용암이나 화산재의 분출없이 폭발이 일어나 그곳에 있던 암석을 날려 그 구멍만이 남게된 것이다. 이러한 화산을 마르(Maar)라고 부르는데 한국에는 하나밖에 없는 세계적으로도 아주 희귀한 화산이다.</body></html>",
     };
 
-    private JLabel[] images = new JLabel[] {
+    private JLabel[][] images = new JLabel[][] {
+    		{
             new JLabel(new ImageIcon("src/main/java/images/경기도/갯골생태공원.jpg")),
             new JLabel(new ImageIcon("src/main/java/images/경기도/송도 센트럴파크.png")),
             new JLabel(new ImageIcon("src/main/java/images/경기도/수원 화성.png")),
@@ -412,6 +413,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/경기도/임진각.png")),
             new JLabel(new ImageIcon("src/main/java/images/경기도/한탄강 주상절리길.png")),
             new JLabel(new ImageIcon("src/main/java/images/경기도/화담숲.png")),
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/강원도/남이섬.png")),
             new JLabel(new ImageIcon("src/main/java/images/강원도/논골담길.png")),
             new JLabel(new ImageIcon("src/main/java/images/강원도/대관령눈꽃마을.png")),
@@ -422,6 +424,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/강원도/해피초원목장.png")),
             new JLabel(new ImageIcon("src/main/java/images/강원도/홍천 은행나무숲.png")),
             new JLabel(new ImageIcon("src/main/java/images/강원도/힐리언스 선마을.png")),
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/충청북도/능암온천랜드.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청북도/단양강 잔도.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청북도/도담상봉.png")),
@@ -432,6 +435,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/충청북도/용추폭포 유리전망대.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청북도/청남대.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청북도/청풍호반케이블카.png")),
+    		}.{
             new JLabel(new ImageIcon("src/main/java/images/충청남도/꽂지해수욕장.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청남도/세계꽃식물원.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청남도/안면도.png")),
@@ -442,6 +446,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/충청남도/유성온천.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청남도/지구별그림책마을.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청남도/판교마을.png")),
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/전라북도/강천사.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라북도/고군산군도.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라북도/내변산.png")),
@@ -452,6 +457,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/전라북도/채계산 출렁다리.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라북도/한옥마을.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라북도/허브밸.png")),
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/전라남도/가우도.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라남도/거금도.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라남도/매화마을.png")),
@@ -462,6 +468,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/전라남도/순천만자연생태공원.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라남도/해상케이블카.png")),
             new JLabel(new ImageIcon("src/main/java/images/전라남도/해운대.png")),
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/경상북도/낙강물길공원.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상북도/동궁과 월지.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상북도/등기산스카이워크.png")),
@@ -472,6 +479,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/경상북도/하옥계곡.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상북도/하회마을.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상북도/호미반도 해안둘레.png")),
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/경상남도/가야컨트리클럽.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상남도/감악산.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상남도/남해 독일마을.png")),
@@ -482,6 +490,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/경상남도/영상테마파크.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상남도/외도 보타니아.png")),
             new JLabel(new ImageIcon("src/main/java/images/경상남도/진해군항제.png")),
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/제주도/만장굴.png")),
             new JLabel(new ImageIcon("src/main/java/images/제주도/비자림.png")),
             new JLabel(new ImageIcon("src/main/java/images/제주도/산굼부리.png")),
@@ -492,6 +501,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/제주도/우도.png")),
             new JLabel(new ImageIcon("src/main/java/images/제주도/중문관광단지.png")),
             new JLabel(new ImageIcon("src/main/java/images/제주도/휴애리자연생활공원.png"))
+    		}
     };
 
     private MainModel[] dummyData = new MainModel[90];
@@ -537,9 +547,9 @@ public class AppView extends JFrame{
     
     public void regionChange(int regionNo) {
     	getContentPane().removeAll();
-    	this.regionPanel = new RegionPanel(regions, names2[regionNo], regionNo);
+    	//this.regionPanel = new RegionPanel(regions, names2[regionNo], regionNo);
     	//각 버튼에 이미지 할당
-    	//this.regionPanel = new RegionPanel(regions, tripImage2[regionNo], regionNo);
+    	this.regionPanel = new RegionPanel(regions, images[regionNo], regionNo);
     	getContentPane().add(regionPanel);
     	
     	revalidate();
