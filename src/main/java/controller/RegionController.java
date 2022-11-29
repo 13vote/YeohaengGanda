@@ -18,7 +18,7 @@ public class RegionController {
 		this.appView = appView;
 
 		this.addEvent();
-		
+
 	}
 	
 	public void addEvent() {
@@ -40,7 +40,6 @@ public class RegionController {
 			appView.detailPanel.name2 = e.getActionCommand();
 
 
-			System.out.println(e.getSource());
 			int i = 0;
 
 			int j = 0;
@@ -51,12 +50,6 @@ public class RegionController {
 					i =0;
 				}
 			}
-			appView.detailPanel.i1 = i ;
-
-			appView.detailPanel.i2 = j ;
-
-			i = appView.detailPanel.i1;
-			j = appView.detailPanel.i2;
 			int result = i*j+i;
 			appView.detailChange(appView.detailPanel.name2,appView.positions[result],appView.informations[result]);
 

@@ -438,6 +438,8 @@ public class AppView extends JFrame{
         	getContentPane().add(regionPanel);
         else if(str == "d")
         	getContentPane().add(detailPanel);
+        else
+            getContentPane().add(regionPanel);
         revalidate();
         repaint();
     }

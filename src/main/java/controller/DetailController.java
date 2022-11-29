@@ -1,23 +1,37 @@
 package controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 
 import view.AppView;
+import view.DetailPanel;
 
-public class DetailController {
+import javax.swing.*;
+
+public class DetailController{
 	AppView appView;
 	
-	public DetailController(AppView appview) {
+	public DetailController(AppView appView) {
 		this.appView = appView;
-		
+		this.addEvent1();
 		
 	}
-	
-	class MovePage2 implements ActionListener {
+	public void addEvent1() {
+
+		//JButton returnbtn2 = (JButton) appView.detailPanel.getComponent(0);
+		System.out.println(appView.detailPanel.getComponent(0));
+		//returnbtn2.addActionListener(new DetailController.move2());
+
+
+	}
+
+	class move2 implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			appView.change("r");
 		}
+
+
+
 	}
 }

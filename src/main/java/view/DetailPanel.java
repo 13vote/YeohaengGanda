@@ -1,5 +1,6 @@
 package view;
 
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,15 +11,9 @@ public class DetailPanel extends JPanel {
             new ImageIcon("src/main/java/images/")
     };
 
-    public int i1;
-
-    public int i2;
-    public int i3;
-    public int i4;
     public String name2;
     public DetailPanel(String name, String positions , String informations) {
-    	this.images = images;
-    	
+
     	// 패널 c
 
         JPanel f1 = new JPanel();
@@ -62,18 +57,19 @@ public class DetailPanel extends JPanel {
         j4.setFont(Font1);
         j5.setFont(Font1);
         j6.setFont(Font1);
-
-        btn();
+        this.add(new btnPanel()).setBounds(132,721,335,56);;
 
         setVisible(true);
     }
-    private void btn(){
-        // JButton("뒤로가기") 생성
-        JButton btn = new JButton("뒤로가기");
-        add(btn).setBounds(132,721,335,56);
-        add(btn).setBackground(new Color(99,195,249));
-        Font Font1 = new Font("pretendard", Font.PLAIN, 24);
-        this.setFont(Font1);
-    }
 
+    public class btnPanel extends JPanel{
+        public btnPanel() {
+            JButton btn = new JButton("뒤로가기");
+
+            btn.setBackground(new Color(99,195,249));
+            Font Font1 = new Font("pretendard", Font.PLAIN, 24);
+            btn.setFont(Font1);
+            this.add(btn);
+        }
+    }
 }

@@ -1,3 +1,4 @@
+import controller.DetailController;
 import controller.MainController;
 import controller.RegionController;
 import view.AppView;
@@ -8,5 +9,6 @@ public class Main {
     	AppView a = new AppView();
         MainController m = new MainController(a);
         RegionController r = new RegionController(a);
+        DetailController d = new DetailController(a);
     }
 }
