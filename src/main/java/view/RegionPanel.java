@@ -12,7 +12,7 @@ public class RegionPanel extends JSplitPane {
 	// GridLayoutPanel-btn
 	private final Dimension btnSize = new Dimension(160, 120);
 	// UtilPanel
-	private final Dimension utilPanelSize = new Dimension(600, 150);
+	private final Dimension utilPanelSize = new Dimension(600, 50);
 	// UtilPanel-RegionCombobox
 	private final Dimension regComboSize = new Dimension(100, 30);
 	private final Point regComboLocation = new Point((utilPanelSize.width - regComboSize.width) - 25,
@@ -161,9 +161,12 @@ public class RegionPanel extends JSplitPane {
 			reg = new RegionCombo(regions);
 			reg.setSelectedIndex(regionNo);
 			this.add(reg);
-
-			// JLabel regProfile = new JLabel(regionProfilePicture);
-			// this.add(regProfile);
+			
+//			// JLabel regProfile = new JLabel(regionProfilePicture);
+//			// this.add(regProfile);
+//			JLabel regName = new JLabel(regions[regionNo]);
+//			regName.setBounds(new Rectangle(new Point(300, 100), new Dimension(100, 50)));
+//			this.add(regName);
 
 			JButton rtnBtn = new JButton("지도");
 			rtnBtn.setBounds(new Rectangle(rtnBtnLocation, rtnBtnSize));
