@@ -41,12 +41,12 @@ public class RegionPanel extends JSplitPane {
 
 	}
 
-	public RegionPanel(String[] regions, ImageIcon[] trips, int regionNo) {
+	public RegionPanel(String[] regions, JLabel[] images, int regionNo) {
 		super(JSplitPane.VERTICAL_SPLIT);
 		this.utilPanel = new UtilPanel(regions, regionNo);
 		this.setTopComponent(utilPanel);
 
-		this.gridLayoutPanel = new GridLayoutPanel(trips);
+		this.gridLayoutPanel = new GridLayoutPanel(images);
 		this.setBottomComponent(gridLayoutPanel);
 
 		this.setDividerLocation(0.25);
@@ -67,12 +67,12 @@ public class RegionPanel extends JSplitPane {
 
 	}
 
-	public RegionPanel(String[] regions, ImageIcon[] tripPic) {
+	public RegionPanel(String[] regions, JLabel[] images) {
 		super(JSplitPane.VERTICAL_SPLIT);
 		this.utilPanel = new UtilPanel(regions, 1);
 		this.setTopComponent(utilPanel);
 
-		this.gridLayoutPanel = new GridLayoutPanel(tripPic);
+		this.gridLayoutPanel = new GridLayoutPanel(images);
 		this.setBottomComponent(gridLayoutPanel);
 
 		this.setDividerLocation(0.25);
@@ -100,12 +100,12 @@ public class RegionPanel extends JSplitPane {
 			}
 		}
 
-		public GridLayoutPanel(ImageIcon[] tripPic) {
+		public GridLayoutPanel(JLabel[] images) {
 			this.setBackground(Color.WHITE);
 			this.setLayout(null);
 
-			for (int i = 0; i < tripPic.length; i++) {
-				btnList[i].setIcon(tripPic[i]);
+			for (int i = 0; i < images.length; i++) {
+				btnList[i].setIcon(images[i].getIcon());
 				btnList[i].setSize(btnSize);
 				btnList[i].setLocation((i % 3) * (hGap + btnSize.width) + hGap,
 						(i / 3) * (vGap + btnSize.height) + vGap);
