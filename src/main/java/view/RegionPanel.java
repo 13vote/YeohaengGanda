@@ -41,12 +41,12 @@ public class RegionPanel extends JSplitPane {
 
 	}
 
-	public RegionPanel(String[] regions) {
+	public RegionPanel(String[] regions, ImageIcon[] trips, int regionNo) {
 		super(JSplitPane.VERTICAL_SPLIT);
-		this.utilPanel = new UtilPanel(regions, 1);
+		this.utilPanel = new UtilPanel(regions, regionNo);
 		this.setTopComponent(utilPanel);
 
-		this.gridLayoutPanel = new GridLayoutPanel();
+		this.gridLayoutPanel = new GridLayoutPanel(trips);
 		this.setBottomComponent(gridLayoutPanel);
 
 		this.setDividerLocation(0.25);
