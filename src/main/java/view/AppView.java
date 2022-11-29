@@ -435,7 +435,7 @@ public class AppView extends JFrame{
             new JLabel(new ImageIcon("src/main/java/images/충청북도/용추폭포 유리전망대.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청북도/청남대.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청북도/청풍호반케이블카.png")),
-    		}.{
+    		},{
             new JLabel(new ImageIcon("src/main/java/images/충청남도/꽂지해수욕장.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청남도/세계꽃식물원.png")),
             new JLabel(new ImageIcon("src/main/java/images/충청남도/안면도.png")),
