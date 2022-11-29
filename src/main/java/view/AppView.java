@@ -208,6 +208,8 @@ public class AppView extends JFrame{
     public void regionChange(int regionNo) {
     	getContentPane().removeAll();
     	this.regionPanel = new RegionPanel(regions, names2[regionNo], regionNo);
+    	//각 버튼에 이미지 할당
+    	//this.regionPanel = new RegionPanel(regions, tripImage2[regionNo], regionNo);
     	getContentPane().add(regionPanel);
     	
     	revalidate();
