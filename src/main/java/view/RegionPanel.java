@@ -128,12 +128,12 @@ public class RegionPanel extends JSplitPane {
 			}
 		}
 
-		public void changeNames(String[] names) {
-			for (int i = 0; i < names.length; i++) {
-				btnList[i].setText(names[i]);
-				btnList[i].repaint();
-			}
-		}
+		/*
+		 * public void changeButton(ImageIcon[] tripPic) { for (int i = 0; i <
+		 * tripPic.length; i++) { btnList[i].setIcon(tripPic[i]); btnList[i].repaint();
+		 * } } public void changeButton(String[] names) { for (int i = 0; i <
+		 * names.length; i++) { btnList[i].setText(names[i]); btnList[i].repaint(); } }
+		 */
 	}
 
 	public class UtilPanel extends JPanel {
