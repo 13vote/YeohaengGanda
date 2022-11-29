@@ -3,6 +3,7 @@ package view;
 import controller.MainController;
 import controller.RegionController;
 import model.MainModel;
+import view.RegionPanel.GridLayoutPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +29,7 @@ public class AppView extends JFrame{
             "제주도"
     };
 
+    public String[][] names2 = new String[][] {};
     private String[] names = new String[] {
             "파주 임진각",
             "인천 송도 센트럴파크",
@@ -121,7 +123,7 @@ public class AppView extends JFrame{
             "산굼부리",
     };
 
-    private String[] positions = new String[] {
+    public String[] positions = new String[] {
             "파주시 문산읍임진각로164",
             "인천 연수구 컨벤시아대로160",
             "경기도 수원 팔달구 정조로 910",
@@ -308,7 +310,7 @@ public class AppView extends JFrame{
     };
 
     private MainModel[] dummyData = new MainModel[90];
-
+    public String name2;
     private void createDummy(String[] region, String[] name, String[] position, String[] information) {
         MainModel model;
         for (int i = 0; i < name.length; i++) {
@@ -324,8 +326,11 @@ public class AppView extends JFrame{
         setSize(600,900);
         createDummy(regions, names, positions, informations);
         mainPanel = new MainPanel();
-        regionPanel = new RegionPanel();
-        detailPanel = new DetailPanel();
+        
+        regionPanel = new RegionPanel(regions, names2[0], 0);
+        //regionPanel.gridLayoutPanel = new GridLayoutPanel();
+        
+        detailPanel = new DetailPanel(name2,positions[0],informations[0]);
         getContentPane().add(mainPanel);
         
         MenuBar menuBar = new MenuBar();
@@ -335,11 +340,28 @@ public class AppView extends JFrame{
 
     public void change(String str) {
         getContentPane().removeAll();
-        if(str == "r")
+        if(str == "m")
+        	getContentPane().add(mainPanel);
+        else if(str == "r")
         	getContentPane().add(regionPanel);
         else if(str == "d")
         	getContentPane().add(detailPanel);
         revalidate();
         repaint();
+    }
+    
+    public void regionChange(int regionNo) {
+    	getContentPane().removeAll();
+    	this.regionPanel = new RegionPanel(regions, names2[regionNo], regionNo);
+    	//각 버튼에 이미지 할당
+    	//this.regionPanel = new RegionPanel(regions, tripImage2[regionNo], regionNo);
+    	getContentPane().add(regionPanel);
+    	
+    	revalidate();
+        repaint();
+    }
+
+    public void detailChange(String name2, String positions, String informations){
+        this.detailPanel = new DetailPanel(name2,positions,informations);
     }
 }
