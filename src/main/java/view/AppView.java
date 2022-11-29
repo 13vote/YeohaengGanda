@@ -3,6 +3,7 @@ package view;
 import controller.MainController;
 import controller.RegionController;
 import model.MainModel;
+import view.RegionPanel.GridLayoutPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +27,99 @@ public class AppView extends JFrame{
             "경상북도",
             "경상남도",
             "제주도"
+    };
+
+    public String[][] names2 = new String[][]{
+    	{"파주 임진각",
+            "인천 송도 센트럴파크",
+            "수원 화성",
+            "광주 화담숲",
+            "포천 아트밸리",
+            "용인 에버랜드",
+            "시흥 갯골생태공원",
+            "가평 아침고요수목원",
+            "포천 한탄강 주상절리길 ",
+            "시흥 오이도"},
+    	{ "춘천 남이섬",
+            "인제 원대리 자작나무 숲",
+            "원주 소금산 출렁다리",
+            "삼척 이사부길",
+            "홍천 은행나무숲",
+            "고성 하늬라벤더팜",
+            "춘천 해피초원목장",
+            "평창 대관령눈꽃마을",
+            "홍천 힐리언스 선마을",
+            "동해 논골담길"},
+    	{"단양강 잔도",
+            "단양 만천하 스카이위크",
+            "청주 청남대",
+            "제천 용추폭포 유리전망대",
+            "제천 청풍호반케이블카",
+            "단양 보발재",
+            "단양 수양개빛터널",
+            "충추 능암온천랜드",
+            "단양 도담삼봉",
+            "옥천 수생식물학습원"},
+    	{"대전 유성온천",
+            "서산 웅도",
+            "예산 예당호 출렁다리",
+            "서산 유기방가옥",
+            "서천 판교마을",
+            "논산 온빛자연휴양림",
+            "태안 안면도",
+            "아산 세계꽃식물원",
+            "태안 꽂지해수욕장",
+            "금산 지구별그림책마을"},
+    	{"군산 선유도",
+            "순창 용궐하늘길",
+            "전주 한옥마을",
+            "순창 강천사",
+            "군산 고군산군도",
+            "부안 내변산",
+            "진안 마이산벚꽃길",
+            "남원 허브밸리",
+            "정읍 내장산국립공원",
+            "순창 채계산 출렁다리"},
+    	{"고흥 거금도",
+            "구례 산수유꽃축제",
+            "강진 가우도",
+            "여수 벽화마을",
+            "담양 메타세쿼이아길",
+            "영광 백수해안도로",
+            "광양 매화마을",
+            "순천 순천만자연생태공원",
+            "부산 해운대",
+            "여수 해상케이블카"},
+    	{"포항 하옥계곡",
+            "경주 동궁과 월지",
+            "영주 부석사",
+            "안동 낙강물길공원",
+            "울진 등기산스카이워크",
+            "경주 불국사",
+            "포항 호미반도 해안둘레길",
+            "경주 첨성대",
+            "안동 하회마을",
+            "문경 에코랄라"},
+    	{"창원 진해군항제",
+            "김해 가야컨트리클럽",
+            "남해 바람흔적미술관",
+            "거제 매미성",
+            "거창 감악산",
+            "합천 영상테마파크",
+            "거제 바람의 언덕",
+            "남해 독일마을",
+            "거제 외도 보타니아",
+            "통영 스카이라인 루지"},
+    	{"성산 일출봉",
+            "우도",
+            "제주 올레길 축",
+            "섭지코지",
+            "중문관광단지",
+            "비자림",
+            "만장굴",
+            "새별오름",
+            "휴애리자연생활공원",
+            "산굼부리"}
     };
 
     private String[] names = new String[] {
@@ -121,7 +215,7 @@ public class AppView extends JFrame{
             "산굼부리",
     };
 
-    private String[] positions = new String[] {
+    public String[] positions = new String[] {
             "파주시 문산읍임진각로164",
             "인천 연수구 컨벤시아대로160",
             "경기도 수원 팔달구 정조로 910",
@@ -214,7 +308,7 @@ public class AppView extends JFrame{
             "제주특별자치도 제주시 조천읍 비자림로 768",
     };
 
-    private String[] informations = new String[] {
+    public String[] informations = new String[] {
             "<html><body>비무장지대의 현실적인 모습을 볼 수 있다.<br>" + "임진각, 북한기념관 등 통일 안보관광지<br></body></html>",
             "<html><body>인천 근린공원<br>" + "호텔, 큰 공원, 배 탑승 가능<br>" + "한옥 식당 가성비 좋음<br>" + "일광욕과 도시뷰 감상 가능<br></body></html>",
             "<html><body>축조 시 기록이 남아있는 유일한 곳이다.<br>" + "화성성역의궤로 복원 유지 중<br>" + "화성 성곽<br></body></html>",
@@ -401,7 +495,7 @@ public class AppView extends JFrame{
     };
 
     private MainModel[] dummyData = new MainModel[90];
-
+    public String name2;
     private void createDummy(String[] region, String[] name, String[] position, String[] information) {
         MainModel model;
         for (int i = 0; i < name.length; i++) {
@@ -417,8 +511,11 @@ public class AppView extends JFrame{
         setSize(600,900);
         createDummy(regions, names, positions, informations);
         mainPanel = new MainPanel();
-        regionPanel = new RegionPanel();
-        detailPanel = new DetailPanel();
+        
+        regionPanel = new RegionPanel(regions, names2[0], 0);
+        //regionPanel.gridLayoutPanel = new GridLayoutPanel();
+        
+        detailPanel = new DetailPanel(name2,positions[0],informations[0]);
         getContentPane().add(mainPanel);
         
         MenuBar menuBar = new MenuBar();
@@ -428,11 +525,28 @@ public class AppView extends JFrame{
 
     public void change(String str) {
         getContentPane().removeAll();
-        if(str == "r")
+        if(str == "m")
+        	getContentPane().add(mainPanel);
+        else if(str == "r")
         	getContentPane().add(regionPanel);
         else if(str == "d")
         	getContentPane().add(detailPanel);
         revalidate();
         repaint();
+    }
+    
+    public void regionChange(int regionNo) {
+    	getContentPane().removeAll();
+    	this.regionPanel = new RegionPanel(regions, names2[regionNo], regionNo);
+    	//각 버튼에 이미지 할당
+    	//this.regionPanel = new RegionPanel(regions, tripImage2[regionNo], regionNo);
+    	getContentPane().add(regionPanel);
+    	
+    	revalidate();
+        repaint();
+    }
+
+    public void detailChange(String name2, String positions, String informations){
+        this.detailPanel = new DetailPanel(name2,positions,informations);
     }
 }
