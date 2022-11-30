@@ -2,26 +2,34 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DetailPanel extends JPanel {
 
+	private final Dimension ImageSize = new Dimension(120, 120);
+	private final int imageX = 10;
+	private final int imageY = 523 ;
+	private final int gap = ImageSize.width + 40;
+	private final int left = 40;
+	
     private ImageIcon[] images= {
             new ImageIcon("src/main/java/images/"),
             new ImageIcon("src/main/java/images/")
     };
 
     public int i1;
+    public JButton btn;
 
     public int i2;
     public int i3;
     public int i4;
     public String name2;
-    public DetailPanel(String name, String positions , String informations) {
+    public DetailPanel(String name, String positions , String informations, ImageIcon im1,ImageIcon im2,ImageIcon im3) {
     	this.images = images;
     	
     	// 패널 c
-
-        JPanel f1 = new JPanel();
+    	JPanel f1 = new JPanel();
         f1.setBounds(40, 36, 520, 660);
         setLayout(null);
         Font Font1 = new Font("pretendard", Font.PLAIN, 24);
@@ -54,6 +62,16 @@ public class DetailPanel extends JPanel {
         JLabel j3 = new JLabel(informations);
         j3.setVerticalAlignment(JLabel.TOP);
         f1.add(j3).setBounds(18,178,491,391);
+        
+        JLabel i1 = new JLabel(im1);
+        JLabel i2 = new JLabel(im2);
+        JLabel i3 = new JLabel(im3);
+        f1.add(i1).setBounds(new Rectangle(new Point(left, imageY),ImageSize));
+        f1.add(i2).setBounds(new Rectangle(new Point(left + gap, imageY),ImageSize));
+        f1.add(i3).setBounds(new Rectangle(new Point(left + 2*gap, imageY),ImageSize));
+        
+        
+        
         this.setSize(600,900);
         add(f1);
         j1.setFont(Font1);
@@ -63,17 +81,15 @@ public class DetailPanel extends JPanel {
         j5.setFont(Font1);
         j6.setFont(Font1);
 
-        btn();
-
+        //btn();
+        btn = new JButton("뒤로가기");
+        btn.setBounds(132,721,335,56);
+        btn.setBackground(new Color(99,195,249));
+        Font btnFont1 = new Font("pretendard", Font.PLAIN, 24);
+        btn.setFont(btnFont1);
+        this.add(btn);
         setVisible(true);
-    }
-    private void btn(){
-        // JButton("뒤로가기") 생성
-        JButton btn = new JButton("뒤로가기");
-        add(btn).setBounds(132,721,335,56);
-        add(btn).setBackground(new Color(99,195,249));
-        Font Font1 = new Font("pretendard", Font.PLAIN, 24);
-        this.setFont(Font1);
+        
     }
 
 }

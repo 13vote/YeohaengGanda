@@ -401,7 +401,7 @@ public class AppView extends JFrame{
             "<html><body>산굼부리는 천연기념물로 둘레가 2km가 넘는 화구이다. 제주도에서 유일하게 용암이나 화산재의 분출없이 폭발이 일어나 그곳에 있던 암석을 날려 그 구멍만이 남게된 것이다. 이러한 화산을 마르(Maar)라고 부르는데 한국에는 하나밖에 없는 세계적으로도 아주 희귀한 화산이다.</body></html>",
     };
     
-    private ImageIcon[][] images30 = new ImageIcon[][] {
+    public ImageIcon[][] images30 = new ImageIcon[][] {
     	{
     		new ImageIcon("src/main/java/images/경기도/1. 파주 임진각1.jpg"),
     		new ImageIcon("src/main/java/images/경기도/1. 파주 임진각2.jpg"),
@@ -808,7 +808,8 @@ public class AppView extends JFrame{
         regionPanel = new RegionPanel(regions, images[0], names2[0], 0);
         //regionPanel.gridLayoutPanel = new GridLayoutPanel();
         
-        detailPanel = new DetailPanel(name2,positions[0],informations[0]);
+        detailPanel = new DetailPanel(name2,positions[0],informations[0], images30[0][0], images30[0][0], images30[0][0]);
+        System.out.println("hi");
         getContentPane().add(mainPanel);
         
         MenuBar menuBar = new MenuBar();
@@ -839,7 +840,12 @@ public class AppView extends JFrame{
         repaint();
     }
 
-    public void detailChange(String name2, String positions, String informations){
-        this.detailPanel = new DetailPanel(name2,positions,informations);
+    public void detailChange(String name2, String positions, String informations, ImageIcon im1, ImageIcon im2, ImageIcon im3){
+    	getContentPane().removeAll();
+        this.detailPanel = new DetailPanel(name2,positions,informations, im1, im2, im3);
+        getContentPane().add(detailPanel);
+        
+        revalidate();
+        repaint();
     }
 }
